@@ -1,0 +1,86 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .clock-container{
+            min-height: 200px;
+            max-height: 200px;
+            min-width : 300 px;
+            max-width : 300px;
+            outline: 1px solid black;
+            margin:1em;
+        }
+        .times-container {
+            min-height: 98%;
+            max-height:98%;
+            min-width:60%;
+            max-width:60%;
+            outline: 1px dashed green;
+            margin:5px;
+        }
+        .time-container {
+            min-height: 48%;
+            max-height:48%;
+            min-width:100%;
+            max-width:100%;
+            outline: 5px dotted green;
+            margin:1px;
+            justify-content:center;
+        }
+        .time-container label {
+            font-size: xx-large;
+            text-align: right;
+            outline:1px solid red;
+            width:4em;
+        }
+
+        .status label {
+            font-size: large;
+            text-align: center;    
+        }
+        .controls {
+            background: lightblue;
+            min-width:6em;
+            max-width:6em;
+        }
+
+        .status {
+            min-height: 30px;
+            background:lightgrey;
+        }
+    </style>
+</head>
+<body>
+    <div class="container clock-container">
+        <div class="row">
+            <div class="col-3 times-container">
+                <div class="time-container">
+                    <label id="btime">3.02</label>
+                </div>
+                <div class="status">
+                    <label>White to move</label>
+                </div>
+                <div class="time-container">
+                    <label id="wtime">3.02</label>
+                </div>
+            </div>
+            <div class="col-9 controls">
+                <div class="row">
+                <select id="mode">
+                    <option value="Standard">Standard</option>
+                    <option value="Fischer">Fischer</option>
+                    <option value="Bronstein">Bronstein</option>
+                </select>
+            </div>
+            <div class="row">
+                <input type="number" min=1 max=180></div>
+            </div>
+            <div class="row"></div>
+            <div class="row"></div>
+            </div>
+        </div>
+    </div>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js'></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+</body>
