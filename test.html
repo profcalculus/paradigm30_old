@@ -1,0 +1,63 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>Test page</h1>
+    <div id="promotion-popup" width=100 height=30  style="display:none">
+        <fieldset>
+            <label>
+                <input type="radio" id="Q" name="promo" value="Q" checked>
+                <img src="img/chesspieces/wikipedia/wQ.png" width="30px">
+            </label>
+            <label>
+                <input type="radio" id="B" name="promo" value="B">
+                <img src="img/chesspieces/wikipedia/wB.png" width="30px">
+            </label>
+            <label>
+                <input type="radio" id="R" name="promo" value="R">
+                <img src="img/chesspieces/wikipedia/wR.png" width="30px">
+            </label>
+            <label>
+                <input type="radio" id="N" name="promo" value="N">
+                <img src="img/chesspieces/wikipedia/wN.png" width="30px">
+            </label>
+        </fieldset>
+    </div>
+    <div>
+        <button onclick="go()" style="width:50;height:30">Go</button>
+        <div id="result">
+            ???
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        var promotion_piece = null;
+        var $promotion_popup = $("#promotion-popup").dialog({
+            classes: "no-close",
+            autoOpen: false,
+            height: 100,
+            width: 300,
+            modal: true,
+            buttons: [{
+                    text: "Promote",
+                    click: function () {
+                    promotion_piece = $("input[name='promo']:checked").val();
+                    $('#result').html(promotion_piece);
+                    $(this).dialog("close")
+                }
+            }]
+        });
+
+        function go() {
+            $promotion_popup.dialog("open");
+        }
+
+    </script>
+</body>
+
+</html>

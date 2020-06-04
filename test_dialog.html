@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>dialog demo</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        .promotion-panel {
+            display: grid;
+            width:90px;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            background: lightgrey;
+            border: 10px solid darkblue;
+            border-radius: 20px;
+        }
+
+   
+        /* Hide radiobuttons (but *don't* use display:none!)*/
+        [type=radio] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        [type=radio]+img {
+            cursor: pointer;
+            background: lightgrey;
+            margin: 5px;
+            /*margin-left: 20px;*/
+        }
+    </style>
+    <style>
+
+        [type=radio]+img:hover {
+            cursor: pointer;
+            background:blue;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="promo"></div>
+    <button id="opener">open the dialog</button>
+    <div id="promotion-popup">
+        <div class="promotion-panel" style="display:grid">
+            <label>
+                <input type="radio" name="promo" value="q" checked>
+                <img id="q" src="img/chesspieces/paradigm30/wQ.png"
+                ondblclick="closeDialog('q')">
+            </label>
+            <label>
+                <input type="radio" name="promo" value="b">
+                <img id="b" src="img/chesspieces/paradigm30/wB.png"
+                ondblclick="closeDialog('b')">
+            </label>
+            <label>
+                <input type="radio" name="promo" value="r">
+                <img id="r" src="img/chesspieces/paradigm30/wR.png"
+                ondblclick="closeDialog('r')">
+            </label>
+            <label>
+                <input type="radio" name="promo" value="n">
+                <img id="n" src="img/chesspieces/paradigm30/wN.png"
+                ondblclick="closeDialog('n')">
+            </label>
+        </div>
+    </div>
+
+    <script>
+        var global_promo = null;
+        closeDialog = function(promo) {
+            global_promo = promo;
+            $("#dialog").dialog("close");
+        }
+        // getPromo = function () {
+        //     var selectedPromo = $("#promotion-panel").find("input[name='promo']:checked").val();
+        // }
+
+        $("#dialog").dialog({
+            modal: true,
+            autoOpen: false,
+        });
+
+        $("#opener").click(function () {
+            $("#dialog").dialog("open");
+        });
+    </script>
+
+</body>
+
+</html>

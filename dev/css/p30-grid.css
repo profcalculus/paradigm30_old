@@ -1,0 +1,111 @@
+
+
+/* .container{
+    /* box-sizing: border-box; */
+/* max-width:1280px;*/
+/* width:1280px;
+    height:100 vh;
+    outline:2px solid green;
+} */
+.r1 {
+    /* background: pink; */
+}
+
+.r1 .spacer {
+    min-width: 50vw;
+    height: 1 em;
+    backgound:blue;
+}
+
+.r1>a {
+    align: right;
+}
+
+.r2 {
+    height:85vh;
+    border:1px solid black;
+    /* background:paleturquoise; */
+}
+
+.r1c2 {
+    min-width: 30vw;
+}
+
+.r1c3 {
+    float: right;
+}
+.r2c1 {
+    width:50%;
+}
+
+.logo {
+    font-size: xx-large;
+    outline: dotted red;
+    padding-left: 2%;
+}
+
+.nav {
+    background-color: lightblue;
+}
+
+.nav>a {
+    margin: 5 rem;
+}
+
+.board {
+    height: 60vh;
+    width: 60vh;
+    background: yellow;
+}
+
+.clock {
+    height: 20vh;
+    /* top:25%; */
+    background: yellow;
+    align-self: auto;
+}
+
+.clock .top {
+    min-height: 45%;
+    outline: dotted blue;
+}
+
+.clock .middle {
+    min-height: 5%;
+    outline: dotted blue;
+}
+
+.clock .bottom {
+    min-height: 45%;
+    outline: dotted blue;
+}
+
+.credits {
+    font-size: small;
+    max-height: 1em;
+}
+
+.credits-left {
+    text-align: left;
+}
+
+.credits-right {
+    text-align: right;
+}
+
+.pgn {
+    min-height: 38vh;
+    border:1em groove lightcoral;
+    margin-bottom:0.2em;
+}
+
+.chat {
+    min-height: 38vh;
+    border:1em groove lightcoral;
+}
+.r2 {
+
+}
+.panels {
+    /* outline:6px solid red; */
+} 

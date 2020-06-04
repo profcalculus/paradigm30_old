@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/simple-grid.css">
+    <link rel="stylesheet" href="css/p30-grid.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row r1">
+            <div class="col-3 r1c1 logo">Paradigm Chess30</div>
+            <div class="col-7 r1c2 spacer"></div>
+            <nav class="col-2 r1c3">
+                <a href="#">Lobby</a>
+                <a href="#">Download</a>
+            </nav>
+        </div>
+        <div class="row r2">
+            <div class="col-4 r2c1 board">board</div>
+            <div id= "clock" class="col-2 r2c2 clock">
+                <div class="row b">Black clock</div>
+                <div class="row controls">controls</div>
+                <div class="row w">White clock</div>
+            </div>
+            <div class="col-5 r2c3 panels">
+                <div class="row">
+                    <div class="pgn"></div>
+                </div>
+                <div class="row">
+                    <div class="chat"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row r3 credits">
+            <div class="col-6 r3c1 credits-left">credits left</div>
+            <div class="col-6 r3c2 credits-right">credits right</div>
+        </div>
+    </div>
+    <script>
+        $("#clock").on("click", () => {
+            alert("clock clicked!");
+        });
+    </script>
+</body>
+
+</html>
