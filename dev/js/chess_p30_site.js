@@ -1,4 +1,4 @@
-$ (function () {
+$(function () {
 
   var board = null;
   var promoting = false;

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Slider - Custom handle</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /* .row {
+            height:4vh;
+        } */
+        #custom-handle1,
+        #custom-handle2 {
+            width: 3em;
+            height: 1.6em;
+            top: 50%;
+            margin-top: -.8em;
+            text-align: center;
+            line-height: 1.6em;
+            border: 1px solid black;
+        }
+
+        #slider1,
+        #slider2 {
+            width: 15vw;
+            margin: 10px;
+            border: 2px solid green;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/clock.js"></script>
+    <script>
+        $(function () {
+            var handle1 = $("#custom-handle1");
+            $("#slider1").slider({
+                min: 1,
+                max: 180,
+                create: function () {
+                    handle1.text($(this).slider("value") + ' m');
+                },
+                slide: function (event, ui) {
+                    handle1.text(ui.value + ' m');
+                }
+            });
+            var handle2 = $("#custom-handle2");
+            $("#slider2").slider({
+                min: 0,
+                max: 59,
+                create: function () {
+                    handle2.text($(this).slider("value") + ' s');
+                },
+                slide: function (event, ui) {
+                    handle2.text(ui.value + ' s');
+                }
+            });
+        });
+    </script>
+</head>
+
+<body style="outline: 3px dotted blue;margin:15px;>
+    <div class="container" style="outline: 3px dotted red;top:15vh;">
+    <div class="row">
+        <div class="col-12">
+            <div id="slider1">
+                <div id="custom-handle1" class="ui-slider-handle"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label for="slider2" style="display: inline">Increment:</label>
+            <div class="col-3">
+                <div id="slider2">
+                    <div id="custom-handle2" class="ui-slider-handle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
