@@ -1,5 +1,9 @@
 chessboardjs/
+bootstrap/
+jquery/
 old/
 grid/
-
 node_modules
+js/bootstrap.js
+js/jquery.jsjs/jqueryui.js
+

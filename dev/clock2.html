@@ -1,21 +1,20 @@
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <style>
         .clock-container {
-            min-height: 200px;
-            max-height: 200px;
-            min-width: 300 px;
-            max-width: 300px;
+            min-height: 10vh;
+            max-height: 10vh;
+            min-width:  10vw;
+            max-width: 10vw;
             outline: 1px solid black;
             margin: 1em;
         }
 
         .times-container {
-            min-height: 98%;
-            max-height: 98%;
-            min-width: 60%;
-            max-width: 60%;
+            min-height: 30%;
+            max-height: 30%;
+            min-width: 30%;
+            max-width: 30%;
             outline: 1px dashed green;
             margin: 5px;
         }
@@ -34,7 +33,7 @@
             font-size: xx-large;
             text-align: right;
             outline: 1px solid red;
-            width: 4em;
+            width: 2em;
         }
 
         .status label {
@@ -42,12 +41,12 @@
             text-align: center;
         }
 
-        .controls {
+        /* .controls {
             background: lightblue;
             min-width: 6em;
             max-width: 6em;
             /* padding:10px; */
-        }
+        /* } */ 
 
 
         .status {
@@ -55,20 +54,119 @@
             background: lightgrey;
         }
 
-        #handle-min,
+        #slider-min,
+        #slider-sec {
+            width: 8em;
+            height: 0.5em;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        /* #handle-min,
         #handle-sec {
+            outline: 1px dotted black;
+            width: 3px;
+            height: 0.6em;
+            top: 150%;
+            margin-top: -.8em;
+            text-align: center;
+            line-height: 1.6em;
+        } */
+
+        /* #custom-handle {
             width: 3em;
             height: 1.6em;
             top: 50%;
             margin-top: -.8em;
             text-align: center;
             line-height: 1.6em;
+        } */
+
+
+        #tester{
+            position:absolute;
+            top:40vh;
+            left:40vw;
+            width:8em;
+            height:5em;
+            background-color: chartreuse;
+        }
+
+        #slider-test {
+            margin:15px;
+            border:1px solid red;
+            height:20px;
+
+        }
+        #handle-test {
+            outline: 1px dotted black; 
+            width: 1em;
+            height: 1.6em;
+            top: 50%;
+            margin-top: -.8em;
+            text-align: center;
+            line-height: 1.6em;
+            color:white;  
         }
     </style>
+
+</head>
+
+<body>
+    <h6>Using Bootstrap</h6>
+    <div class="container clock-container">
+        <!-- <div class="row"> -->
+            <!-- <div class="col-3 times-container">
+                <div class="time-container">
+                    <label id="btime">3.02</label>
+                </div>
+                <div class="status">
+                    <label>White to move</label>
+                </div>
+                <div class="time-container">
+                    <label id="wtime">3.02</label>
+                </div>
+            </div> -->
+            <!-- <div class="col-9 controls"> -->
+                <!-- <div class="row">
+                    <select id="mode">
+                        <option value="Standard">Standard</option>
+                        <option value="Fischer" selected>Fischer</option>
+                        <option value="Bronstein">Bronstein</option>
+                        <option value="Delay">Delay</option>
+                    </select>
+                </div> -->
+                <!-- <div class="row">
+                    <div class="col-3">
+                        <div id="slider-min"> -->
+                            <!-- <div id="handle-min" class="custom-handle ui-slider-handle"></div> -->
+                        <!-- </div>
+                    </div>
+                </div> -->
+                <!-- <div class="row">
+                    <div class="col-3">
+                        <div id="slider-sec">
+                            <div id="handle-sec" class="custom-handle ui-slider-handle"></div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div id="tester">
+        <div id="slider-test">
+            <div id="handle-test" class="custom-handle ui-slider-handle"></div>
+        </div>
+    </div>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js'></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.js"></script>
     <script>
         $(function () {
             var handle_sec = $("#handle-sec");
             var handle_min = $("#handle-min");
+            var handle_test = $("#handle-test");
             $("#slider-min").slider({
                 create: function () {
                     handle_min.text($(this).slider("value"));
@@ -85,51 +183,14 @@
                     handle_sec.text(ui.value);
                 }
             });
+            $("#slider-test").slider({
+                create: function () {
+                    handle_test.text($(this).slider("value"));
+                },
+                slide: function (event, ui) {
+                    handle_test.text(ui.value);
+                }
+            });
         });
     </script>
-</head>
-
-<body>
-    <div class="container clock-container">
-        <div class="row">
-            <div class="col-3 times-container">
-                <div class="time-container">
-                    <label id="btime">3.02</label>
-                </div>
-                <div class="status">
-                    <label>White to move</label>
-                </div>
-                <div class="time-container">
-                    <label id="wtime">3.02</label>
-                </div>
-            </div>
-            <div class="col-9 controls">
-                <div class="row">
-                    <select id="mode">
-                        <option value="Standard">Standard</option>
-                        <option value="Fischer" selected>Fischer</option>
-                        <option value="Bronstein">Bronstein</option>
-                        <option value="Delay">Delay</option>
-                    </select>
-                </div>
-                <div class="row">
-                    <div class="col-3">
-                        <div id="slider-min">
-                            <div id="handle-min" class="ui-slider-handle"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-3">
-                        <div id="slider-sec">
-                            <div id="handle-sec" class="ui-slider-handle"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js'></script>
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="js/jquery-ui.min.js"></script>
-        <script></script>
 </body>

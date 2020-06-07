@@ -28,9 +28,13 @@
                 },
                 slide: function (event, ui) {
                     handle.text(ui.value);
+                    // $("#output").text(ui.value);
                 },
-                dblclick: function (event, ui) {
+                change: function (event, ui) {
                     $("#output").text(ui.value);
+                    if (ui.value === 30) {
+                        ui.disable();
+                    }
                 }
             });
         });
@@ -42,7 +46,7 @@
     <div id="slider">
         <div id="custom-handle" class="ui-slider-handle"></div>
     </div>
-    <div>
+    <div style="padding:10px;">
         <label id="output" style="font-size:xx-large"></label>
     </div>
 

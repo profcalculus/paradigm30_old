@@ -6,7 +6,7 @@
 // https://github.com/oakmac/chessboardjs/blob/master/LICENSE.md
 
 // start anonymous scope
-;(function () {
+(function () {
   'use strict'
 
   var $ = window['jQuery']
