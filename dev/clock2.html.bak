@@ -1,0 +1,217 @@
+<html><head>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js'></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style>
+        /* .container {
+            min-height: 10vh;
+            max-height: 10vh;
+            min-width:  10vw;
+            max-width: 10vw;
+            outline: 1px solid black;
+            margin: 1em;
+        }
+
+        .times-container {
+            min-height: 30%;
+            max-height: 30%;
+            min-width: 30%;
+            max-width: 30%;
+            outline: 1px dashed green;
+            margin: 5px;
+        }
+*/
+        .time-container {
+            outline: 1px dotted green;
+            margin: 0.1em;
+            justify-content: center;
+        }
+
+        .time-container label {
+
+            font-size: xx-large;
+            text-align: right;
+            outline: 1px solid red;
+            width: 4em;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+        }
+
+        .status label {
+            font-size: large;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        .controls {
+            background: lightblue;
+            /* min-width: 6em;
+            max-width: 6em;
+            padding:10px; */
+        }
+
+       
+        #slider-min,
+        #slider-sec {
+            width: 8em;
+            height: 0.5em;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #handle-min,
+        #handle-sec {
+            outline: 1px dotted black;
+            width: 3px;
+            height: 0.6em;
+            top: 150%;
+            margin-top: -.8em;
+            text-align: center;
+            line-height: 1.6em;
+        }
+
+        #custom-handle {
+            width: 3em;
+            height: 1.6em;
+            top: 50%;
+            margin-top: -.8em;
+            text-align: center;
+            line-height: 1.6em;
+        }
+
+        .clock-container {
+            outline: 4px solid black;
+        }
+
+        #tester {
+            position: absolute;
+            top: 40vh;
+            left: 40vw;
+            width: 8em;
+            /* height: 5em; */
+            background-color: rgb(172, 149, 170); 
+        }
+
+        #slider-test {
+            margin: 15px;
+            border: 1px solid red;
+            height: 20px;
+
+        }
+
+        #handle-test {
+            outline: 1px solid black;
+            width: 1em;
+            height: 1.6em;
+            top: 50%;
+            margin-top: -.8em;
+            text-align: center;
+            line-height: 1.6em;
+            color: white;
+        }
+
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-10,
+        .col-11,
+        .col-12 {
+            outline: 1px dotted red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h6>Using Bootstrap</h6>
+    <div class="container clock-container">
+        <div class="row">
+            <div class="col-1 times-container">
+                <div class="container time-container">
+                    <div class="row time-container">
+                        <label id="btime">3.02</label>
+                    </div>
+                    <!-- <div class="row status">
+                        <label>White to move</label>
+                    </div>
+                -->
+                    <div class="row time-container">
+                        <label id="wtime">3.02</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 controls">
+                <div class="container">
+                    <div class="row">
+                        <select id="mode">
+                            <option value="Standard" selected>Standard</option>
+                            <option value="Fischer"></option>Fischer</option>
+                            <option value="Bronstein">Bronstein</option>
+                            <option value="Delay">Delay</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <div id="slider-min">
+                                <div id="handle-min" class="custom-handle ui-slider-handle"></div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                    <div class="col-3">
+                        <div id="slider-sec">
+                            <div id="handle-sec" class="custom-handle ui-slider-handle"></div>
+                        </div>
+                    </div>
+                </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="tester">
+        <div id="slider-test">
+            <div id="handle-test" class="custom-handle ui-slider-handle"></div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var handle_sec = $("#handle-sec");
+            var handle_min = $("#handle-min");
+            var handle_test = $("#handle-test");
+            $("#slider-min").slider({
+                create: function () {
+                    handle_min.text($(this).slider("value"));
+                },
+                slide: function (event, ui) {
+                    handle_min.text(ui.value);
+                }
+            });
+            $("#slider-sec").slider({
+                create: function () {
+                    handle_sec.text($(this).slider("value"));
+                },
+                slide: function (event, ui) {
+                    handle_sec.text(ui.value);
+                }
+            });
+            $("#slider-test").slider({
+                create: function () {
+                    handle_test.text($(this).slider("value"));
+                },
+                slide: function (event, ui) {
+                    handle_test.text(ui.value);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

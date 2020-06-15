@@ -1,7 +1,18 @@
+<html>
+
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/nouislider.min.css">
+    <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js'></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/clock.js"></script>
     <style>
-        .clock-container {
+        /* .container {
             min-height: 10vh;
             max-height: 10vh;
             min-width:  10vw;
@@ -9,104 +20,106 @@
             outline: 1px solid black;
             margin: 1em;
         }
+*/
 
         .times-container {
             min-height: 30%;
             max-height: 30%;
-            min-width: 30%;
-            max-width: 30%;
+            min-width: 15%;
+            max-width: 15%;
             outline: 1px dashed green;
             margin: 5px;
         }
 
         .time-container {
-            min-height: 48%;
-            max-height: 48%;
-            min-width: 100%;
-            max-width: 100%;
             outline: 5px dotted green;
-            margin: 1px;
+            margin: 0.1em;
             justify-content: center;
+            padding: 0.1em;
         }
 
         .time-container label {
+
             font-size: xx-large;
-            text-align: right;
-            outline: 1px solid red;
-            width: 2em;
+            text-align: center;
+            outline: 2px solid green;
+            width: 4em;
+            margin-left: 1em;
+            margin-right: 1em;
+
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
         }
 
         .status label {
             font-size: large;
             text-align: center;
+            font-family: sans-serif;
         }
 
-        /* .controls {
+        .controls {
             background: lightblue;
-            min-width: 6em;
+            /* min-width: 6em;
             max-width: 6em;
-            /* padding:10px; */
-        /* } */ 
+            padding:10px; */
+        }
 
 
-        .status {
-            min-height: 30px;
-            background: lightgrey;
+
+        .clock-container {
+            outline: 15px groove grey;
+        }
+
+
+        .form-group>label {
+            font-size: small;
+            font-weight: bold;
+            margin-left: 5px;
+            ;
+            /* font-family:monospace; */
         }
 
         #slider-min,
         #slider-sec {
-            width: 8em;
-            height: 0.5em;
-            padding: 10px;
-            margin: 10px;
+            width: 5px;
+            margin-bottom: 15px;
+            border: 2px solid red;
         }
 
-        /* #handle-min,
+        #slider-sec {
+            display: none;
+        }
+
+        #handle-min,
         #handle-sec {
-            outline: 1px dotted black;
-            width: 3px;
-            height: 0.6em;
-            top: 150%;
-            margin-top: -.8em;
-            text-align: center;
-            line-height: 1.6em;
-        } */
-
-        /* #custom-handle {
             width: 3em;
-            height: 1.6em;
-            top: 50%;
-            margin-top: -.8em;
+            height: 0.8em;
             text-align: center;
-            line-height: 1.6em;
-        } */
-
-
-        #tester{
-            position:absolute;
-            top:40vh;
-            left:40vw;
-            width:8em;
-            height:5em;
-            background-color: chartreuse;
+            line-height: 0.8em;
+            border: 1px solid black;
         }
 
-        #slider-test {
-            margin:15px;
-            border:1px solid red;
-            height:20px;
-
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-10,
+        .col-11,
+        .col-12 {
+            outline: 1px dotted red;
         }
-        #handle-test {
-            outline: 1px dotted black; 
-            width: 1em;
-            height: 1.6em;
-            top: 50%;
-            margin-top: -.8em;
-            text-align: center;
-            line-height: 1.6em;
-            color:white;  
+
+        .ui-controlgroup-vertical {
+            width: 100px;
+        }
+
+        .ui-controlgroup-vertical>.ui-controlgroup-label {
+            text-align: left;
         }
     </style>
 
@@ -115,82 +128,99 @@
 <body>
     <h6>Using Bootstrap</h6>
     <div class="container clock-container">
-        <!-- <div class="row"> -->
-            <!-- <div class="col-3 times-container">
-                <div class="time-container">
-                    <label id="btime">3.02</label>
+        <div class="row">
+            <div class="col-1 times-container">
+                <div class="container time-container">
+                    <div class="row time-container">
+                        <label id="btime">3.02</label>
+                    </div>
+                    <!-- <div class="row status">
+                        <label>White to move</label>
+                    </div>
+                -->
+                    <div class="row time-container">
+                        <label id="wtime">3.02</label>
+                    </div>
                 </div>
-                <div class="status">
-                    <label>White to move</label>
+                <div class="row">
+                    <button id="startstopbtn" class="btn btn-primary" onclick="clock.startstop()">Start</button>
                 </div>
-                <div class="time-container">
-                    <label id="wtime">3.02</label>
-                </div>
-            </div> -->
-            <!-- <div class="col-9 controls"> -->
-                <!-- <div class="row">
+            </div>
+            <div id="settings" class="container col-2  controlgroup" style="outline: 3px dotted red;margin:3px;">
+                <!-- <div class="container"> -->
+                <div class="row">
                     <select id="mode">
-                        <option value="Standard">Standard</option>
-                        <option value="Fischer" selected>Fischer</option>
+                        <option value="Standard" selected>Standard</option>
+                        <option value="Fischer">Fischer</option>
                         <option value="Bronstein">Bronstein</option>
                         <option value="Delay">Delay</option>
                     </select>
-                </div> -->
-                <!-- <div class="row">
-                    <div class="col-3">
-                        <div id="slider-min"> -->
-                            <!-- <div id="handle-min" class="custom-handle ui-slider-handle"></div> -->
-                        <!-- </div>
+                </div>
+                <!-- <div class="container"> -->
+                    <!-- <div class="form-group row" style="background:lightgray">
+                        <label for="slider-min" class="col-sm-2 col-form-label">
+                            Limit</label>
+                        <label for="slider-sec" class="col-sm-2 col-form-label" id="seconds-label">Increment</label>
+                    </div> -->
+                    <div class="form-group row">
+                        <div id="spinner-min" class="col-6"></div>
+                        <div id="spinner-sec" class="col-6"></div>
+                        <!-- <div id="slider-min" class="col-sm-1">
+                                <div id="handle-min" class="ui-slider-handle">
+                                </div>
+                            </div>
+                            <div id="slider-sec" class="col-sm-1">
+                                <div id="handle-sec" class="ui-slider-handle">
+                                </div>
+                            </div> -->
                     </div>
-                </div> -->
-                <!-- <div class="row">
-                    <div class="col-3">
-                        <div id="slider-sec">
-                            <div id="handle-sec" class="custom-handle ui-slider-handle"></div>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
+                </div>
+                <!-- </div> -->
+            <!-- </div> -->
         </div>
-    </div>
-    <div id="tester">
-        <div id="slider-test">
-            <div id="handle-test" class="custom-handle ui-slider-handle"></div>
-        </div>
-    </div>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js'></script>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script>
-        $(function () {
-            var handle_sec = $("#handle-sec");
-            var handle_min = $("#handle-min");
-            var handle_test = $("#handle-test");
-            $("#slider-min").slider({
-                create: function () {
-                    handle_min.text($(this).slider("value"));
-                },
-                slide: function (event, ui) {
-                    handle_min.text(ui.value);
-                }
+        <script>
+            $(function () {
+                // var handle_min = $("#handle-min");
+                // $("#slider-min").slider({
+                //     min: 1,
+                //     max: 180,
+                //     orientation: "vertical",
+                //     value: 3,
+                //     create: function () {
+                //         handle_min.text($(this).slider("value") + ' m');
+                //     },
+                //     slide: function (event, ui) {
+                //         handle_min.text(ui.value + ' m');
+                //         clock.slider_min_onslide(event, ui);
+                //     }
+                // });
+                // var handle_sec = $("#handle-sec");
+                // $("#slider-sec").slider({
+                //     min: 0,
+                //     max: 59,
+                //     value: 0,
+                //     orientation: "vertical",
+                //     create: function () {
+                //         handle_sec.text($(this).slider("value") + ' s');
+                //     },
+                //     slide: function (event, ui) {
+                //         handle_sec.text(ui.value + ' s');
+                //         clock.slider_sec_onslide(event, ui);
+                //     }
+                // });
+                $("#spinner-min").spinner({
+                    spin: function (event, ui) {
+                        clock.on_minute_spin(event, ui);
+                    }
+                });
+                $("#spinner-sec").spinner({
+                    spin: function (event, ui) {
+                        clock.on_second_spin(event, ui);
+                    }
+                });
+                $("#mode").on("change", clock.mode_onchange);
             });
-            $("#slider-sec").slider({
-                create: function () {
-                    handle_sec.text($(this).slider("value"));
-                },
-                slide: function (event, ui) {
-                    handle_sec.text(ui.value);
-                }
-            });
-            $("#slider-test").slider({
-                create: function () {
-                    handle_test.text($(this).slider("value"));
-                },
-                slide: function (event, ui) {
-                    handle_test.text(ui.value);
-                }
-            });
-        });
-    </script>
+        </script>
 </body>
+
+</html>

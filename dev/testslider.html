@@ -32,7 +32,7 @@
     </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="js/clock.js"></script>
+    <!-- <script src="js/clock.js"></script> -->
     <script>
         $(function () {
             var handle1 = $("#custom-handle1");
@@ -61,28 +61,25 @@
     </script>
 </head>
 
-<body style="outline: 3px dotted blue;margin:15px;>
-    <div class="container" style="outline: 3px dotted red;top:15vh;">
-    <div class="row">
-        <div class="col-12">
-            <div id="slider1">
-                <div id="custom-handle1" class="ui-slider-handle"></div>
+<body>
+    <div class="container" style="outline: 3px dotted red;margin:10px;">
+        <div class="row">
+            <div class="col-2">
+                <label for="slider1" style="display: inline">Limit:</label>
+                <div id="slider1">
+                    <div id="custom-handle1" class="ui-slider-handle"></div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-3">
-            <label for="slider2" style="display: inline">Increment:</label>
-            <div class="col-3">
+        <div class="row">
+            <div class="col-2">
+                <label for="slider2" style="display: inline">Increment:</label>
                 <div id="slider2">
                     <div id="custom-handle2" class="ui-slider-handle"></div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-    </div>
-
 </body>
 
 </html>

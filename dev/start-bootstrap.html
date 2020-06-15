@@ -24,6 +24,10 @@
         .row {
             padding: 10px;
         }
+        .col-4,.col-5,.col-6 {
+            padding:10px;
+            outline:dotted red 2px;
+        }
     </style>
 </head>
 
@@ -31,10 +35,10 @@
     <div class="container-fluid">
         <h1>Paradigm Chess30</h1>
         <div class="row">
-            <div class="col-6">
+            <div class="col-3">
                 <div style="width:20vw" id="board1"></div>
             </div>
-            <div class="col-6">
+            <div class="col-3">
                 <div style="width:20vw" id="board2"></div>
             </div>
         </div>
@@ -43,7 +47,18 @@
                 <div style="width:20vw" id="board3"></div>
             </div>
             <div class="col-6">
-                <div style="width:20vw" id="board4"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4"></div>
+                        <div class="col-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4"></div>
+                        <div class="col-4"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -65,7 +80,6 @@
                 var board1 = Chessboard('board1');
                 var board2 = Chessboard('board2');
                 var board3 = Chessboard('board3');
-                var board4 = Chessboard('board4');
             });
         </script>
 </body>
