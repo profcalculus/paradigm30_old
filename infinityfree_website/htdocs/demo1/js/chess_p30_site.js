@@ -150,7 +150,9 @@ $ (function () {
         current_san = '';
         moveNumber += 1;
       }
-    }
+        // Auto-scroll
+        $('li', $pgn).last()[0].scrollIntoView(false);
+      }
     var moveColor = 'White';
     if (game.turn () === 'b') {
       moveColor = 'Black';
@@ -176,6 +178,8 @@ $ (function () {
 
   function pgnHeader () {
     $pgn.empty ();
+    var white="white"; //TBD
+    var black="black"; //TBD
     var date = new Date ();
     var yyyy = date.getFullYear ();
     var mm = date.getMonth () + 1;
@@ -189,11 +193,15 @@ $ (function () {
     $pgn.append ('<li class="tinygreen">[Site "ParadigmChess30"]</li>');
     var datestr = yyyy + '/' + mm + '/' + dd;
     $pgn.append ('<li class="tinygreen">[Date "' + datestr + '"]</li>');
+    $pgn.append ('<li class="tinygreen">[White "' + white+'"]</li>')
+    $pgn.append ('<li class="tinygreen">[Black "' + black+'"]</li>')
     // Display the 'p30' verion of the FEN
     var fenstr = '<li class="tinygreen">' + game.fen_p30() + '"]</li>';
     $pgn.append (
-      '<li class="tinygreen">[SetUp "1"] [StartPos ' + fenstr + '</li>'
-    );
+      '<li class="tinygreen">[SetUp "1"]</li>');
+      $pgn.append (
+        '<li class="tinygreen">[StartPos ' + fenstr + '</li>');
+  
   }
 
   var config = {
