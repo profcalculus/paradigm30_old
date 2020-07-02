@@ -1,15 +1,16 @@
 $ (function () {
-
+  console.log ('Start of document ready function');
   var board = null;
   var promoting = false;
   var game = new Chess ();
   var $status = $ ('#status');
-  var $fen = $ ('#fen');
+  // var $fen = $ ('#fen');
   var $pgn = $ ('#pgn-list');
   var promotion_dialog = $ ('#promotion-dialog');
   var moveNumber = 1;
   var current_san = '';
 
+ 
   function onDragStart (source, piece, position, orientation) {
     // do not pick up pieces if the game is over
     if (game.game_over ()) return false;
@@ -150,9 +151,9 @@ $ (function () {
         current_san = '';
         moveNumber += 1;
       }
-        // Auto-scroll
-        $('li', $pgn).last()[0].scrollIntoView(false);
-      }
+      // Auto-scroll
+      $ ('li', $pgn).last ()[0].scrollIntoView (false);
+    }
     var moveColor = 'White';
     if (game.turn () === 'b') {
       moveColor = 'Black';
@@ -175,11 +176,11 @@ $ (function () {
     }
     $status.html (status);
   }
-
+  
   function pgnHeader () {
     $pgn.empty ();
-    var white="white"; //TBD
-    var black="black"; //TBD
+    var white = 'white'; //TBD
+    var black = 'black'; //TBD
     var date = new Date ();
     var yyyy = date.getFullYear ();
     var mm = date.getMonth () + 1;
@@ -193,15 +194,12 @@ $ (function () {
     $pgn.append ('<li class="tinygreen">[Site "ParadigmChess30"]</li>');
     var datestr = yyyy + '/' + mm + '/' + dd;
     $pgn.append ('<li class="tinygreen">[Date "' + datestr + '"]</li>');
-    $pgn.append ('<li class="tinygreen">[White "' + white+'"]</li>')
-    $pgn.append ('<li class="tinygreen">[Black "' + black+'"]</li>')
+    $pgn.append ('<li class="tinygreen">[White "' + white + '"]</li>');
+    $pgn.append ('<li class="tinygreen">[Black "' + black + '"]</li>');
     // Display the 'p30' verion of the FEN
-    var fenstr = '<li class="tinygreen">' + game.fen_p30() + '"]</li>';
-    $pgn.append (
-      '<li class="tinygreen">[SetUp "1"]</li>');
-      $pgn.append (
-        '<li class="tinygreen">[StartPos ' + fenstr + '</li>');
-  
+    var fenstr = '<li class="tinygreen">' + game.fen_p30 () + '"]</li>';
+    $pgn.append ('<li class="tinygreen">[SetUp "1"]</li>');
+    $pgn.append ('<li class="tinygreen">[StartPos ' + fenstr + '</li>');
   }
 
   var config = {
@@ -213,12 +211,15 @@ $ (function () {
     onSnapEnd: onSnapEnd,
   };
 
-  $ (window).on ('load', function () {
-    board = Chessboard ('myBoard', config);
-    board.position (game.fen ());
-    updateStatus ();
-    pgnHeader ();
-  });
+  console.log ('Start chessboard init');
+
+  board = Chessboard ('myBoard', config);
+  board.position (game.fen ());
+  updateStatus ();
+  pgnHeader ();
+  // Since we're all loaded, reveal the html
+  $ ('body').css ('display', 'initial');
+  console.log ('End chessboard init');
 
   // init promotion piece dialog
   $ ('#promote-to').selectable ({
@@ -237,7 +238,5 @@ $ (function () {
       });
     },
   });
-    // Since we're all loaded, reveal the html
-    $ ('body').css ('display','initial');
-
+  console.log ('End of document ready function');
 });

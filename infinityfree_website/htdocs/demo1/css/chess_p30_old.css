@@ -1,66 +1,74 @@
+
+/* .main-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.board-panel {
+    display: grid;
+    /* grid-template-rows: 18fr 1fr; */
+    /* width: 400px; */
+    width:40vw;
+    margin: 2%;
+}
+
+ #myBoard { 
+     /* width: 300px;  */
+}
+
 .header {
-    font-size:2em;
+    text-align: center;
+    padding: 3px;
+    font-size: 3em;
+    border: 8px ridge rgb(139, 118, 118);
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: fit-content;
 }
+
+.right-panel {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    height:50vh;
+    width:40vw;
+    margin-right:2vw;
+}
+
+.right-panel .inner {
+    display: grid;
+    grid-template-rows: 4fr 4fr;
+}
+
 .panel {
-    margin-bottom:1em;
-    padding:0.2em;
-    border:8px groove burlywood;
-}
-.clock{
-    height:81vh;
-    border: 8px ridge darkgrey;
-    margin-right:5px;
-}
-.playername {
-    font-size:2.5em;
-    width:100%;
-    border:5 px solid green;
-    background-color: lightblue;
-}
-.time {
-    font-size: 4em; 
-    font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
-}
-.status {
-    font-size:2em;
-    border:1px solid black;
-    background-color: lightgray;
-    /* align:left; */
-}
-.scroller {
-    overflow: auto scroll;
-}
-.credits{
-    font-size: small;
-    padding:1em;
-    margin-left:1em;
+    border: solid gray 5px;
+    margin: 2px;
+    border-radius: 5px;
+    background: lightgrey;
 } 
 
-.panel.chat {
+ .panel.status {
+    font-size: xx-large;
+    text-align: center;
+    background: darkblue;
+    line-height: 1em;
+    margin: auto;
+    margin-top: 4px; 
+    width: 50%;
     color: white;
-    background: gray;
-    height: 40vh;
-    max-height:40vh;
-    overflow:auto scroll;
-    text-indent: 10px;
+    border: 1px solid green;
+}
+
+
+.no-bullets {
     list-style-type: none;
-}}
-
-.panel.pgn {
-    height: 40vh;
-    max-height:40vh;
-    overflow:auto scroll;
-
 }
 
 #pgn-list {
-    height: 40vh;
-    max-height:40vh;
+    height: 35vh;
     overflow: auto scroll;
     text-indent: 10px;
     padding:10px;
-    list-style-type: none;
 }
 
 #pgn-list>li {
@@ -73,6 +81,7 @@
     color: darkgreen;
     font-size: 1.5em;
 }
+
 #promotion-dialog {
     display: none;
 }
@@ -145,4 +154,25 @@
 
 .piece-name {
     display: none;
+}
+
+footer {
+    width: "100%";
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    font-size: small;
+}
+
+span.left-credits {
+    margin-left: 3em;
+    text-align: left;
+}
+
+span.filler {
+    display: inline-block;
+}
+
+span.right-credits {
+    margin-right: 3em;
+    text-align: right;
 }

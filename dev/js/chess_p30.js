@@ -1443,6 +1443,12 @@ function legal_dragon_bishop_move (fromsq, tosq) {
       return generate_fen()
     },
 
+    fen_p30: function() {
+      // Return the FEN string with 'dD' instead of 'bB'.
+      // For display purposes only. Internally we keep the standard FEN symbols!
+      return generate_fen().replace(/b/g,'d').replace(/B/g,'D')
+    },
+    
     board: function() {
       var output = [],
         row = []
@@ -1478,7 +1484,7 @@ function legal_dragon_bishop_move (fromsq, tosq) {
       var result = []
       var header_exists = false
 
-      /* add the PGN header headerrmation */
+      /* add the PGN header information */
       for (var i in header) {
         /* TODO: order of enumerated properties in header object is not
          * guaranteed, see ECMA-262 spec (section 12.6.4)

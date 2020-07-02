@@ -21,67 +21,157 @@
             /* background-color: cadetblue; */
             border: 1 px solid black;
         }
+
         .row {
             padding: 10px;
         }
-        .col-4,.col-5,.col-6 {
-            padding:10px;
-            outline:dotted red 2px;
+
+        .row .boards {
+            padding: 2vh;
         }
+
+        .col-4,
+        .col-5,
+        .col-6 {
+            padding: 10px;
+            /* outline: dotted red 2px; */
+        }
+
+        #chat {
+            border: 8px groove darkred;
+            display: scroll auto;
+            background-color: lightgrey;
+            height:80vh;
+        
+        }
+        #players {
+            border: 5px ridge darkblue;
+            display: scroll auto;
+            background-color: lightgrey;
+            height:80vh;
+            margin-left:3px;
+        }
+        .time {
+            text-align: right;
+            font-weight:bold;
+            font-size:large;
+        }
+  
     </style>
 </head>
 
 <body>
     <div class="container-fluid">
-        <h1>Paradigm Chess30</h1>
         <div class="row">
-            <div class="col-3">
-                <div style="width:20vw" id="board1"></div>
+            <div class="col-4">
+                <h1>Paradigm Chess30 lobby</h1>
             </div>
-            <div class="col-3">
-                <div style="width:20vw" id="board2"></div>
+            <div class="col-4">
+            </div>
+            <div class="col-4 nav">
+                <a href="#"> Logout</a>
             </div>
         </div>
         <div class="row">
             <div class="col-6">
-                <div style="width:20vw" id="board3"></div>
-            </div>
-            <div class="col-6">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-4"></div>
-                        <div class="col-4"></div>
-                        <div class="col-4"></div>
+                <div class="row boards">
+                    <div class="col-4">
+                        <div class="container">
+                            <div class="row" style="display:flex"><span>B1 Player1</span><span style="flex:1; text-align:right;">4:43</span></div>
+                            <div class="row" id="board1"></div>
+                            <div class="row"><span>B1 Player2</span><span >2:12</span></div>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col-4"></div>
-                        <div class="col-4"></div>
-                        <div class="col-4"></div>
+                    <div class="col-4">
+                        <div class="container">
+                            <div class="row"><span>B2 Player1</span><span>4:43</span></div>
+                            <div class="row" id="board2"></div>
+                            <div class="row"><span>B2 Player2</span><span>2:12</span></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="container">
+                            <div class="row"><span>B3 Player1</span><span>4:43</span></div>
+                            <div class="row" id="board3"></div>
+                            <div class="row"><span>B3 Player2</span><span>2:12</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row boards">
+                    <div class="col-4">
+                        <div class="container">
+                            <div class="row"><span>B4 Player1</span><span>4:43</span></div>
+                            <div class="row" id="board4"></div>
+                            <div class="row"><span>B4 Player2</span><span>2:12</span></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="container">
+                            <div class="row"><span>B5 Player1</span><span>4:43</span></div>
+                            <div class="row" id="board5"></div>
+                            <div class="row"><span>B5 Player2</span><span>2:12</span></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="container">
+                            <div class="row"><span class="name">B6 Player1</span><span class="time">4:43</span></div>
+                            <div class="row" id="board6"></div>
+                            <div class="row"><span>B6 Player2</span><span>2:12</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <div class="col-4" id="chat">Chat</div>
+        <div class="col-1" id="players">Players</div>
+    </div>
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.js"></script>
-        <script src="js/chessboard.js"></script>
-        <script>
-            $(document).ready(function () {
-                var config = {
-                    pieceTheme: 'img/chesspieces/paradigm30/{piece}.png',
-                    draggable: true,
-                    position: 'start',
-                    //     onDragStart: onDragStart,
-                    //     onDrop: onDrop,
-                    //     onSnapEnd: onSnapEnd,
-                };
-                var board1 = Chessboard('board1');
-                var board2 = Chessboard('board2');
-                var board3 = Chessboard('board3');
-            });
-        </script>
+    <!--<div class="row">
+            <div class="col-3">
+            <div class="container"></div>
+            <div class="row">
+                <div class="col-6 player1">Player1</div>
+                <div class="col-6">time1</div>
+            </div class="row">
+                <div style="width:20vw" id="board1"></div>
+            </div>
+            <div class="row">
+                <div class="col-6 player2">Player2</div>
+                <div class="col-6">time2</div>
+            </div>
+        </div>
+                <div class="col-3">
+                    <div style="width:20vw" id="board2"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div style="width:20vw" id="board3"></div>
+                </div>
+            </div> -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+    <script src="js/chessboard.js"></script>
+    <script>
+        $(document).ready(function () {
+            var config = {
+                pieceTheme: 'img/chesspieces/paradigm30/{piece}.png',
+                draggable: true,
+                position: 'start',
+                //     onDragStart: onDragStart,
+                //     onDrop: onDrop,
+                //     onSnapEnd: onSnapEnd,
+            };
+            var board1 = Chessboard('board1');
+            var board2 = Chessboard('board2');
+            var board3 = Chessboard('board3');
+            var board4 = Chessboard('board4');
+            var board5 = Chessboard('board5');
+            var board6 = Chessboard('board6');
+        });
+    </script>
 </body>
 
 </html>
